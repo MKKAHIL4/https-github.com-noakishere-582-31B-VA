@@ -78,3 +78,54 @@ print("----Products with 20% tax----")
 print(product1.name, ": $", product1.price_with_tax())        
 print(product2.name, ": $", product2.price_with_tax())        
 print(product3.name, ": $", product3.price_with_tax())  
+
+print("---Exercise 4 Employee Class--")
+print("\n")
+
+class Employee:
+    company_name = "TechNova"
+    bonus_rate = 0.10
+    employee_count = 0
+    
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        
+        Employee.employee_count += 1
+        
+    def calculate_bonus(self):
+        return self.salary * Employee.bonus_rate
+    
+    def display_employee(self):
+        print(f"{self.name} works at {Employee.company_name}. Salary : {self.salary}. Bonus: {self.calculate_bonus()}")
+        
+#creating employees info
+employee1 = Employee("John", 50000)
+employee2 = Employee("Samuel", 20000)
+employee3 = Employee("Micheal", 60000)
+
+print("\n ---All Employees---")
+employee1.display_employee()
+employee2.display_employee()
+employee3.display_employee()
+
+Employee.bonus_rate = 0.20
+
+print("\n ---Employee After bonus rate to (20%)---")
+employee1.display_employee()
+employee2.display_employee()
+employee3.display_employee()
+
+Employee.bonus_rate = 0.50
+
+print("\n ---Employee After bonus rate to (50%)---")
+employee1.display_employee()
+employee2.display_employee()
+employee3.display_employee()
+
+Employee.bonus_rate = 0.05
+
+print("\n ---Employee After bonus rate to (5%)---")
+employee1.display_employee()
+employee2.display_employee()
+employee3.display_employee()
