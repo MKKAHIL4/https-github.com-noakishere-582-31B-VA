@@ -60,11 +60,11 @@ class Product:
         self.price = price
         
     def price_with_tax(self):
-        return self.price + (self.price * Product.tax_rate)
+        return round(self.price + (self.price * Product.tax_rate), 2)
         
-product1 = Product("JlabProEarbuds",90)
-product2 = Product("Mouse",30)
-product3 = Product("Keyboard",60)
+product1 = Product("JlabProEarbuds",95)
+product2 = Product("Mouse",34.99)
+product3 = Product("Keyboard",63.99)
 
 print("----Products with 15% tax----")
 print(product1.name, ": $", product1.price_with_tax())        
