@@ -46,4 +46,35 @@ student2.display_info()
 student3.display_info()    
 
 print("Total Students :", Student.student_count)
+print("\n")
 
+print("---Exercise 3 Produuct Class--")
+print("\n")
+class Product:
+    category = "Electronics"
+    tax_rate = 0.15
+    
+    
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        
+    def price_with_tax(self):
+        return self.price + (self.price * Product.tax_rate)
+        
+product1 = Product("JlabProEarbuds",90)
+product2 = Product("Mouse",30)
+product3 = Product("Keyboard",60)
+
+print("----Products with 15% tax----")
+print(product1.name, ": $", product1.price_with_tax())        
+print(product2.name, ": $", product2.price_with_tax())        
+print(product3.name, ": $", product3.price_with_tax())  
+
+# CHANGING THE TAX RATE INTO 20%      
+Product.tax_rate = 0.20
+print("\n")
+print("----Products with 20% tax----")
+print(product1.name, ": $", product1.price_with_tax())        
+print(product2.name, ": $", product2.price_with_tax())        
+print(product3.name, ": $", product3.price_with_tax())  
