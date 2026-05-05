@@ -32,9 +32,9 @@ class Product:
     #2 create from comma-seprated string
 
     @classmethod
-    def from_string(cls, data_str):
+    def from_string(cls, data):
         #split the string
-        parts = data_str.split(",")
+        parts = data.split(",")
         
         #clean spaces and assign values
         name = parts[0]
@@ -50,9 +50,11 @@ class Product:
             data_dict["name"],
             data_dict["price"],
             data_dict["category"],
-            
         )
-        
+    @classmethod
+    def from_name(cls, data):
+        return cls(data, 0, "")
+    
     def display(self):
         print("Name", self.name)
         print("Price:", self.price)
@@ -74,3 +76,13 @@ example_dict = {
 p3 = Product.from_dict(example_dict)
 p3.display()
 
+product4 = Product.from_string("Mouse, 100, Category 1")
+
+product5 = Product("keybopard", 20, "Utils")
+product6 = Product.from_name("screen")
+product7 = Product.from_dict({"name": "Tablet", "price":50, "category": "electronics"})
+
+product4.display()
+product5.display()
+product6.display()
+product7.display()
