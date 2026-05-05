@@ -11,55 +11,62 @@ class Book:
         
         Book.counter += 1 #increase with every book that is being created
 
-#create Books
+#create Books objects
 book1 = Book("In For A Penny", "Kathryn R Wall") 
 book2 = Book("THE Simple Truth", "David Baldacci") 
 book3 = Book("Cocktail Hour Under The Tree Of Forgetfulness", "Alexandra Fuller") 
 book4 = Book("The Bridge Of Madison County", "Robert James Waller") 
-
+#print total books created 
 print("\n Total Books created : ", Book.counter, "Books")
 print("\n")
 
 print("---Exercise 2 Student Class--")
 print("\n")
+
 class Student:
-    school_name = "Vanier College"
-    student_count = 0
+    school_name = "Vanier College" 
+    student_count = 0 #class variable counting total student
     
     def __init__(self, name, program, grade):
+        #instance variables unque for each student
         self.name = name
         self.program = program
         self.grade = grade
-        
+        #increase studetn count everytime a student is created
         Student.student_count += 1
     
     def display_info(self):
         print(f"{self.name} studies {self.program} at {Student.school_name}, with a Grade of : {self.grade}.")
         
-# Stdents Info 
+# Stdents Info #creating student objects
 student1 = Student("Micheal", "Web Development", 73)
 student2 = Student("Jennifer","Advanced Programming", 82)
 student3 = Student("Rumaysa", "Web Interface", 94)
-
+#display student info
 student1.display_info()    
 student2.display_info()    
 student3.display_info()    
-
+#print the total number of students created
 print("Total Students :", Student.student_count)
 print("\n")
 
 print("---Exercise 3 Produuct Class--")
 print("\n")
+
+
+
 class Product:
-    category = "Electronics"
-    tax_rate = 0.15
+    category = "Electronics" #class variable same for all products
+    tax_rate = 0.15 #claas variable ()tax rate shared by all products
     
     
     def __init__(self, name, price):
+        #instance variables unioque per product
         self.name = name
         self.price = price
         
     def price_with_tax(self):
+        #method to calculate price after tax, round keep 2 decimal formats, formula 
         return round(self.price + (self.price * Product.tax_rate), 2)
         
 product1 = Product("JlabProEarbuds",95)
