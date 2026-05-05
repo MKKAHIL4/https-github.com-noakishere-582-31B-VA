@@ -48,8 +48,8 @@ class Student:
                 
             
                 #Class method:
-                #forst parameter : clas (ALWAYS!) 
-                #uses the class
+                #forst parameter : class (ALWAYS!) 
+                #use the class
                 
 class Product:
     count = 0
@@ -77,7 +77,7 @@ print(p3.count)
 
 #alternative constructor:
 class Student:
-    def __init(self, name, program):
+    def __init__(self, name, program):
         self.name = name
         self.program = program
     @classmethod
