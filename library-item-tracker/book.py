@@ -36,8 +36,8 @@ class Book:
         print(f"--Book Info--")
         print("Title:", self.title)
         print("Author:", self.author)
-        print( "Status:", status)
-        print( "Library:", Book.library_name)
+        print("Status:", status)
+        print("Library:", Book.library_name)
         
 #class methods
     @classmethod
