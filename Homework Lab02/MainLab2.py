@@ -34,7 +34,7 @@ class Student:
         self.grade = grade
         #increase studetn count everytime a student is created
         Student.student_count += 1
-    
+    #method to display info
     def display_info(self):
         print(f"{self.name} studies {self.program} at {Student.school_name}, with a Grade of : {self.grade}.")
         
@@ -57,7 +57,7 @@ print("\n")
 
 class Product:
     category = "Electronics" #class variable same for all products
-    tax_rate = 0.15 #claas variable ()tax rate shared by all products
+    tax_rate = 0.15 #class variable tax rate shared by all products
     
     
     def __init__(self, name, price):
@@ -90,19 +90,24 @@ print("---Exercise 4 Employee Class--")
 print("\n")
 
 class Employee:
+    #company name shared by all employees
     company_name = "TechNova"
+    #bonus rate shared by all employees
     bonus_rate = 0.10
+    #counts how many employess are created
     employee_count = 0
     
     def __init__(self, name, salary):
+        #instance variables unique per employee
         self.name = name
         self.salary = salary
-        
+        #increase employee counter
         Employee.employee_count += 1
         
     def calculate_bonus(self):
+        #claculate bonus
         return self.salary * Employee.bonus_rate
-    
+    #show employee information 
     def display_employee(self):
         print(f"{self.name} works at {Employee.company_name}. Salary : {self.salary}. Bonus: {self.calculate_bonus()}")
         
@@ -110,12 +115,12 @@ class Employee:
 employee1 = Employee("John", 50000)
 employee2 = Employee("Samuel", 20000)
 employee3 = Employee("Micheal", 60000)
-
+#display all employees
 print("\n ---All Employees---")
 employee1.display_employee()
 employee2.display_employee()
 employee3.display_employee()
-
+#changing bonus rate
 Employee.bonus_rate = 0.20
 
 print("\n ---Employee After bonus rate to (20%)---")
