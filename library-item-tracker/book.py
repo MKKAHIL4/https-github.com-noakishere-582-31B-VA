@@ -33,12 +33,23 @@ class Book:
             status = "Available"    
         else:
             status = "Not Available"
-        print(f"--Book Info--")
-        print("Title:", self.title)
-        print("Author:", self.author)
-        print("Status:", status)
-        print("Library:", Book.library_name)
+            
         
+        # print(f"--Book Info--")
+        # print("Title:", self.title)
+        # print("Author:", self.author)
+        # print("Status:", status)
+        # print("Library:", Book.library_name)
+        
+        #modify display info
+        #print(f"{self.title} | {self.author} | {status} | {Book.library_name}")
+        
+        #modiy display info style in feature branch
+        print(f"--Book Info--")
+        print(f"Title:  {self.title}")
+        print(f"Author:  {self.author}")
+        print(f"Status:  {status}")
+        print(f"Library:  {Book.library_name}")        
 #class methods
     @classmethod
     def change_library_name(cls, new_name):
