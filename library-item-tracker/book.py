@@ -1,6 +1,7 @@
 print("---------Library-item-Tracker Lab MKKAHIL---------")
 print("----------------------------------------")
-print("-- Book Class--")
+print("--------- Book Class---------")
+print("\n")
 class Book:
     
     library_name = "Central Library"
@@ -32,24 +33,34 @@ class Book:
             status = "Available"    
         else:
             status = "Not Available"
-        print(f"------Book Info-------")
-        print("Title: ", self.title)
-        print("Author: ", self.author)
-        print( "Status: ", status)
-        print( "Library: ", Book.library_name)
-book1 = Book("100 years of Solitude", "Gabriel Garcia Marquez", True)
-book2 = Book("Clean Code", "Robert C. Martin",False)
-book3 = Book("Micro economics", "Pearson edition", False)
+        print(f"--Book Info--")
+        print("Title:", self.title)
+        print("Author:", self.author)
+        print( "Status:", status)
+        print( "Library:", Book.library_name)
+        
+#class methods
+    @classmethod
+    def change_library_name(cls, new_name):
+        cls.library_name = new_name
 
-book1.display_info()
-book1.borrow()
-book1.display_info()
- 
-book2.display_info()
-book2.borrow()
-book2.display_info()
- 
-book3.display_info()
-book3.borrow()
-book3.display_info()
-               
+    @classmethod
+    def show_count(cls):
+        print("Total books created: ", cls.count)
+
+    @classmethod
+    def from_string(cls, data):
+        title, author, available = data.split(",")
+        return cls(title.strip(), author.strip(), available.strip() == "True")
+
+
+#static method
+
+    @staticmethod
+    def is_valid_title(title):
+        return isinstance(title, str) and len(title.strip()) > 0 
+
+
+
+
+        
