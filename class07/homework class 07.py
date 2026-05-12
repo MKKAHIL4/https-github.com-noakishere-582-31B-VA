@@ -58,7 +58,7 @@ class JsonFileHandler(FileHandler):
     def write(self):
         print(f"Writing Homework into setting.json")
         
-print("#2.======file handler ======")
+print("#2.====== ABSTRACT CLASS : FILE HANDLER ======")
 textFile = TextFileHandler()
 jsonFile = JsonFileHandler()
 
@@ -67,6 +67,31 @@ textFile.write()
 
 jsonFile.read()
 jsonFile.write()
+print("\n")
+
+#3. ABSTRACT CLASS : ACCOUNT
+class Account(ABC):
+    @abstractmethod
+    def calculate_fee(self):
+        pass
+#Savings account
+class SavingsAccount(Account):
+    def calculate_fee(self):
+        return 4.99
+
+#PremiumAccount
+class premiumAccount(Account):
+    def calculate_fee(self):
+        return 24.99
+    
+print("======#3. ABSTRACT CLASS : ACCOUNT ======")
+
+savingAcc = SavingsAccount()
+premiumAcc = premiumAccount()
+
+print(f"Savings Account Monthly fee: ${savingAcc.calculate_fee()}")
+print(f"Premium Account Monthly fee: ${premiumAcc.calculate_fee()}")
+
 print("\n")
 
 
