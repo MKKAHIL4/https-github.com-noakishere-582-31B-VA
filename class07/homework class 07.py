@@ -94,6 +94,35 @@ print(f"Premium Account Monthly fee: ${premiumAcc.calculate_fee()}")
 
 print("\n")
 
+#3. ABSTRACT CLASS : EMPLOYEE
 
+class Employee(ABC):
+    @abstractmethod
+    def calculate_salary(self):
+        pass
+#Full Time Employee
+class FullTimeEmployee(Employee):
+    def __init__(self, monthly_salary):
+        self.monthly_salary = monthly_salary
+    
+    def calculate_salary(self):
+        return self.monthly_salary
 
+#Part Time Employee 
 
+class PartTimeEmployee(Employee):
+    
+    def __init__(self, hours_worked, hourly_rate):
+        self.hours_worked = hours_worked
+        self.hourly_rate = hourly_rate
+    
+    def calculate_salary(self):
+        return self.hours_worked * self.hourly_rate
+
+print("======#3. ABSTRACT CLASS : EMPLOYEE ======")
+
+employee1 = FullTimeEmployee(6500)
+employee2 = PartTimeEmployee(36, 19)
+
+print(f"Full Time Employee salary: ${employee1.calculate_salary()}")
+print(f"Full Time Employee salary: ${employee2.calculate_salary()}")
