@@ -5,7 +5,6 @@ from abc import ABC, abstractmethod
 print("====#1. ABSTRACT CLASS: VEHICLE====")
 
 class Vehicle(ABC):
-    
     @abstractmethod
     def move(self):
         pass
@@ -14,18 +13,62 @@ class car(Vehicle):
         self.km = km 
     
     def move(self):
-        print("The car drove", self.km, "km on the road.")
+        print(f"The car drove {self.km} km on the road.")
 
 class Bicycle(Vehicle):
     def __init__(self, km):
         self.km = km 
     
     def move(self):
-        print("The BICYCLE drove", self.km, "km in the park.")
+        print(f"The BICYCLE drove {self.km} km in the park.")
 
 car1 = car(180)
 bike1 = Bicycle(12)
 
 car1.move()
 bike1.move()
+
+print("\n")
+#2. ABSTRACT CLASS: FILE HANDLER
+class FileHandler(ABC):
+    @abstractmethod
+    def read(self):
+        pass
+    
+    @abstractmethod
+    def write(self):
+        pass
+    
+    #text file handler
+    
+class TextFileHandler(FileHandler):
+    
+    def read(self):
+        print(f"Reading student notes from notes.txt")
+        
+    def write(self):
+        print(f"Writing homework into notes.txt")
+
+#JsonFileHnadler
+
+class JsonFileHandler(FileHandler):
+    def read(self):
+        print(f"Reading User settings from settings.josn")
+        
+    def write(self):
+        print(f"Writing Homework into setting.json")
+        
+print("#2.======file handler ======")
+textFile = TextFileHandler()
+jsonFile = JsonFileHandler()
+
+textFile.read()
+textFile.write()
+
+jsonFile.read()
+jsonFile.write()
+print("\n")
+
+
+
 
