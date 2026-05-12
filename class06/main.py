@@ -44,3 +44,36 @@ class Product:
 
 # let's get practical now!
         
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+#shape = Shape()
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width * self.height
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius 
+    def area(self):
+        return 3.14 * self.radius * self.radius       
+rectangle = Rectangle(2,4)
+circle = Circle(3)
+
+print(f"Rectangle area is : {rectangle.area()}")
+print(f"Circle area is : {circle.area()}")
+
+def print_area(shape):
+    print(shape.area())
+        
+print_area(rectangle)
+print_area(circle)
+            
+#rectangle = Rectangle (2, 4)// cant instantite abstaract class rec without an implememntastion for abstract 
