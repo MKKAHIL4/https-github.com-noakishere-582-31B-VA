@@ -70,6 +70,8 @@ circle = Circle(3)
 print(f"Rectangle area is : {rectangle.area()}")
 print(f"Circle area is : {circle.area()}")
 
+print("==================")
+#this could be the code that interacts with our classes
 def print_area(shape):
     print(shape.area())
         
@@ -77,3 +79,42 @@ print_area(rectangle)
 print_area(circle)
             
 #rectangle = Rectangle (2, 4)// cant instantite abstaract class rec without an implememntastion for abstract 
+
+#another example
+
+class FInancialInstitution(ABC):
+    @abstractmethod
+    def payment(self, amount):
+        pass
+class Visa(FInancialInstitution):
+    def __init__(self, card_number):
+        self.card_number = card_number
+        
+        self.balance = 0
+        
+    def payment(self, amount):
+            print(f"{amount} withdrawn!")
+            self.balance += amount
+class PayPal(FInancialInstitution):
+    def __init__(self, card_number, debit_balance):
+        self.card_number = card_number
+        self.debit_balance = debit_balance
+        
+    def payment(self, amount):
+            self.debit_balance -= amount
+            print(f"{amount} paid by PayPal!")
+            
+    def donate(self):
+                pass
+        
+visa_card = Visa("123")
+
+paypal_account = PayPal("456", 100)
+print("=====================")
+def checkout(amount, fi):
+    print(f"You owe: {amount}")
+    
+    fi.payment(amount)
+    
+checkout(50, visa_card)
+checkout(50, paypal_account)
