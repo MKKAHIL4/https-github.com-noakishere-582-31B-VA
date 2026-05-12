@@ -118,3 +118,8 @@ def checkout(amount, fi):
     
 checkout(50, visa_card)
 checkout(50, paypal_account)
+print("======================")
+
+
+
+
