@@ -126,3 +126,32 @@ employee2 = PartTimeEmployee(36, 19)
 
 print(f"Full Time Employee salary: ${employee1.calculate_salary()}")
 print(f"Full Time Employee salary: ${employee2.calculate_salary()}")
+
+#3. ABSTRACT CLASS : Media
+class Media(ABC):
+    @abstractmethod
+    def play(self):
+        pass
+
+# Song Class
+class Song(Media):
+    def __init__(self, title):
+        self.title = title
+    
+    def play(self):
+        print(f"Now playing song:  {self.title}")
+
+#Video Class
+class Video(Media):
+    def __init__(self, title):
+        self.title = title
+    
+    def play(self):
+        print(f"Now Playing Video : {self.title}")
+
+print("======#3. ABSTRACT CLASS : MEDIA ======")
+song1 = Song("I will alwyas love you")
+video1 = Video("Web Programming Tutorial")
+
+song1.play()
+video1.play()
