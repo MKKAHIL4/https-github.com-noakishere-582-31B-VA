@@ -82,7 +82,7 @@ print_area(circle)
 
 #another example
 
-class FInancialInstitution(ABC):
+class FInancialInstitution(ABC): #######abc stands for abstract base class
     @abstractmethod
     def payment(self, amount):
         pass
@@ -120,6 +120,44 @@ checkout(50, visa_card)
 checkout(50, paypal_account)
 print("======================")
 
+#another example foe explanation
+# i want to have multiple animal classes (dog, cat, etc.)
+# i want them all to be able to speak
 
+class Animal(ABC): #Abstract Base Class
+    @abstractmethod
+    def speak(self):
+        pass
 
+class Dog(Animal):
+    # we don't really need a constructor for now
+    voice = "Woof"
+
+    def speak(self):
+        print(f"{self.voice}")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow")
+
+dog1 = Dog()
+cat1 = Cat()
+
+# this is valid
+dog1.speak()
+cat1.speak()
+
+# this is not a must
+# this is a choice
+#                        this is also valid!
+def animal_sound(animal):
+    animal.speak()
+
+animal_sound(dog1)
+animal_sound(cat1)
+
+# With abstraction:
+# 1. The design is clearer (it's intentional!)
+# 2. subclasses are required to implement the method
+# 3. the shared purpose is explicit!
 
