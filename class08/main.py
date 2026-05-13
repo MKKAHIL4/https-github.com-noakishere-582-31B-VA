@@ -26,6 +26,7 @@ print(book1.name)
 #abstraction and interfaces
 
 #let's bring in encapsulation here:
+#poorly encapsulated example
 class BankAccount:
     def __init__(self, owner, balance):
         self.owner = owner
@@ -33,6 +34,47 @@ class BankAccount:
         
 acc1 = BankAccount("Alice", 500)
 acc1.balance = -1000
+
+#how can we make it better
+class BankAccount:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance
+    def deposit(self, amount)
+        if amount > 0:
+            self.__balance += amount
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+    def show_balance(self)
+        print(f"balance is : {self.__balance}")
+
+bank_account1 = BankAccount("Jane", 500)
+#bank_account1.__balance = 1000 # this would throws an error
+# the method is handling interaction
+bank_account1.deposit(500)# deposit() handle data internallly
+bank_account1.show_balance()# show balance() accesses data ionternally and shows us!
+bank_account1.withdraw(200)#withdraw handles data internally
+bank_account1.show_balance()# show balance() accesses data ionternally and shows us!
+
+#why is thsi better?
+#rules are handled through methods
+#raw external data mtation/change is prohibited
+
+class Temperature:
+    def __init__(self, celsius):
+        self.celsius = celsius
+    
+    def set_celsius(self, value):
+        pass
+    def show_celsius(self):
+        print(f"{self.__celsius} C")
+        
+temp1 = Temperature(8)
+temp1.set_celsius(23)
+temp1.show_celsius()
+
+
 
 # we need to protect our code from ourselves!
 
