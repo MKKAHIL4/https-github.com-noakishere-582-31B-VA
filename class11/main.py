@@ -42,3 +42,45 @@ student7 = Student("Jennifer", StudentLevel.ADVANCED)
 student7.display_info()
 
 print("\n=======rorr Testing in Main ==============")
+#INVALID COURSE (string instead of enum)
+try:
+    bad_course = Course("Bad Course", 20, "open", DeliveryMode.ONLINE)
+except ValueError as e:
+    print("Course Erorr: ", e)
+
+#INVALID STUDENT (string instead of enum)
+try:
+    bad_student = Student("Stephanie", "expert") 
+except ValueError as e:
+    print("Course Erorr: ", e)
+    
+#INVALID REOPEN (cancled course)
+print("\n ============CANCLED COURSE TEST=============   ")
+
+course9 = Course("Chemistry", 40, CourseStatus.CANCELED, DeliveryMode.IN_PERSON)
+course9.display_info()
+
+try:
+    course9.reopen_course()
+    print("Course reopened Successfully.")
+except ValueError as e:
+    print("Course 9 Erorr: ", e)
+
+course9.display_info()
+
+#a tets to undertsnad opening and closing the course
+
+print("\n ===re-opening and closing a course test for better undertsanding=== \n")
+print("===Opening the course===")
+course10 = Course("Math", 30, CourseStatus.OPEN, DeliveryMode.ONLINE)
+course10.display_info()
+
+print("\n ===Closing Course====\n")
+course10.close_registration()
+course10.display_info()
+
+print("\n ====reopning the course====\n")
+course10.reopen_course()
+course10.display_info()
+
+
