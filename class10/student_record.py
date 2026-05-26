@@ -8,25 +8,43 @@ class StudentRecord:
         self.credits = credits
         
 #gpa property
-@property
-def gpa(self):
-    return self.__gpa
+    @property
+    def gpa(self):
+        return self.__gpa
 
-@gpa.setter
-def gpa(self, value):
-    if value < 0.0 or value > 4.0:
-        raise ValueError("GPA must be between 0.0 and 4.0")
-    self.__gpa = value
+    @gpa.setter
+    def gpa(self, value):
+        if value < 0.0 or value > 4.0:
+            raise ValueError("GPA must be between 0.0 and 4.0")
+        self.__gpa = value
 
-#credit properties
+    #credit properties
+    @property
+    def credits(self):
+        self.__credits
+        
+    @credits.setter
+    def credits(self, value):
+        if value < 0:
+            raise ValueError("Credits cannot be negative")
+        self.__credits = value
 
-@property 
-def credits(self, value):
-    if value < 0:
-        raise ValueError("Credits cannot be negative")
-    self.__credits = value
+    #methods
+    def add__credits(self, amount):
+        if amount < 0:
+            raise ValueError("connot add negative credits")
+        self.__credits += amount
+        
+    def update_gpa(self, value):
+        
+        self.gpa = value
 
-#methods
-  
+    def display_info(self):
+        print(f"student: {self.name}")
+        print(f"student: {self.gpa}")
+        print(f"student: {self.credits}")
+    
+student = StudentRecord("MK", 3.5, 15)
 
+print(student.display_info())
 
