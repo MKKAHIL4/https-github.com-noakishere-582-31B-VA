@@ -46,3 +46,11 @@ student = StudentRecord("MK", 3.5, 15)
 
 student.display_info()
 
+#challenge1
+def academic_status(self):
+    if self.gpa > 3.5:
+        return "Honours"
+    elif self.gpa >= 2.0:
+        return"Good Standing"
+    else:
+        return "At Risk"
