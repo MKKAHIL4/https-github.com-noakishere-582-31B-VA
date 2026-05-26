@@ -41,16 +41,15 @@ class StudentRecord:
 
     def display_info(self):
         print(f"student: {self.name}, has a Gpa of: {self.gpa} and Credits: {self.credits}")
-    
-student = StudentRecord("MK", 3.5, 15)
-
-student.display_info()
-
 #challenge1
-def academic_status(self):
-    if self.gpa > 3.5:
-        return "Honours"
-    elif self.gpa >= 2.0:
-        return"Good Standing"
-    else:
-        return "At Risk"
+    @property
+    def academic_status(self):
+        if self.gpa > 3.5:
+            return "Honours"
+        elif self.gpa >= 2.0:
+            return"Good Standing"
+        else:
+            return "At Risk"
+
+    
+

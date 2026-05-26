@@ -10,6 +10,6 @@ student1.display_info()
 
 student1.add__credits(2)
 student1.update_gpa(3.9)
-print("\n Student record After Updates:")
+print("\n ---Student record After Updates:")
 student1.display_info()
-print("Academic Status: ",student1.)
+print("Academic Status: ",student1.academic_status)

@@ -83,6 +83,3 @@ class Course_Section:
         print(f"Enrolled: {self.enrolled}")
         print(f"Waitlist: {self.waitlist}")
     
-course = Course_Section("Physics101", 20, 15, 4)
-
-course.display_info()
