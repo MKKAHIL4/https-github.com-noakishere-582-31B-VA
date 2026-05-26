@@ -65,3 +65,14 @@ class Course_Section:
         self.__enrolled -= 1 
         
     #waitlist methods
+    
+    def add_to_waitlist(self):
+        self.waitlist += 1
+    
+    def remove_from_wailist(self):
+        if self.__waitlist <= 0:
+            raise ValueError("waitlist is empty")
+        
+        self.__waitlist -= 1 
+        
+    
