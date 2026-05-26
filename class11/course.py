@@ -42,4 +42,26 @@ def delivery_mode(self, value):
     if not isinstance(value, DeliveryMode):
         raise ValueError("delivery_mode must be a DeliveryMode value")
     self.__delivery_mode = value
+
+#METHODS
+
+def close_registration(self):
+    self.status = CourseStatus.CLOSED
+
+def cancel_course(self):
+    self.status = CourseStatus.CLOSED
+    
+#challenge
+def reopen_course(self):
+    if self.status == CourseStatus.CANCELED:
+        raise ValueError("Cancelled courses can't reopen directly")
+    
+    if self.status == CourseStatus.CLOSED:
+        self.status = CourseStatus.OPEN
         
+def is_open_for_registration(self):
+    
+    return self.status == CourseStatus.OPEN
+
+    
+    
