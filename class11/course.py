@@ -17,4 +17,17 @@ class Course:
         
         self.status = status
         self.delivery_mode = delivery_mode
+#STATUS PROPERTY
+
+@property
+def status (self):
+    return self.__status
+
+@status.setter
+def status(self, value):
+    
+    if not isinstance(value, CourseStatus):
+        raise ValueError("status must be a CourseStatus value")
+    self.__status = value
+    
         
