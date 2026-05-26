@@ -21,7 +21,7 @@ class StudentRecord:
     #credit properties
     @property
     def credits(self):
-        self.__credits
+        return self.__credits
         
     @credits.setter
     def credits(self, value):
@@ -40,11 +40,9 @@ class StudentRecord:
         self.gpa = value
 
     def display_info(self):
-        print(f"student: {self.name}")
-        print(f"student: {self.gpa}")
-        print(f"student: {self.credits}")
+        print(f"student: {self.name}, has a Gpa of: {self.gpa} and Credits: {self.credits}")
     
 student = StudentRecord("MK", 3.5, 15)
 
-print(student.display_info())
+student.display_info()
 
