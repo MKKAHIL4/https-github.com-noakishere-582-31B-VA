@@ -64,4 +64,4 @@ class Course_Section:
         
         self.__enrolled -= 1 
         
-    
+    #waitlist methods
