@@ -62,6 +62,6 @@ class Course_Section:
         if self.__enrolled <= 0:
             raise ValueError("No students to drop")
         
-        self.__enrolled += 1 
+        self.__enrolled -= 1 
         
     
