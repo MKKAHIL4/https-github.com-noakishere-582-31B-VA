@@ -20,6 +20,13 @@ def gpa(self, value):
 
 #credit properties
 
-        
+@property 
+def credits(self, value):
+    if value < 0:
+        raise ValueError("Credits cannot be negative")
+    self.__credits = value
+
+#methods
+  
 
 
