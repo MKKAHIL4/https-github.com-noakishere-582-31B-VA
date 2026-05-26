@@ -7,4 +7,19 @@ class StudentRecord:
         self.gpa = gpa
         self.credits = credits
         
+#gpa property
+@property
+def gpa(self):
+    return self.__gpa
+
+@gpa.setter
+def gpa(self, value):
+    if value < 0.0 or value > 4.0:
+        raise ValueError("GPA must be between 0.0 and 4.0")
+    self.__gpa = value
+
+#credit properties
+
+        
+
 
