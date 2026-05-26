@@ -49,3 +49,19 @@ class Course_Section:
              raise ValueError("Waiting list cannot be negative!")
          
         self.__waitlist= value
+    
+    #methods
+    def register_student(self):
+        
+        if self.__enrolled >= self.__capacity:
+            raise ValueError("Course is full")
+        
+        self.__enrolled += 1 
+    
+    def drop_student(self):
+        if self.__enrolled <= 0:
+            raise ValueError("No students to drop")
+        
+        self.__enrolled += 1 
+        
+    
