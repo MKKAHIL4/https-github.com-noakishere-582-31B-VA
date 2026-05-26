@@ -1,7 +1,8 @@
 class Course_Section:
-    def __init_(self, title, capacity, enrolled=0):
+    def __init__(self, title, capacity, enrolled=0):
         if not title.strip():
             raise ValueError("Ttile cannot be empty")
+        
         self.title = title
         
         self.capacity = capacity
@@ -20,6 +21,7 @@ class Course_Section:
              raise ValueError("Capacity Must be Greater Than 0..!!")
          
         self.__capacity = value
+        
     #Enrolled porperty
     
     @property
@@ -29,7 +31,7 @@ class Course_Section:
     @enrolled.setter
     def enrolled(self, value):
         
-        if value <= 0:
+        if value < 0:
              raise ValueError("Enrolled students cannot be negative!")
         
         if value > self.capacity:
@@ -45,7 +47,7 @@ class Course_Section:
     @waitlist.setter
     def waitlist(self, value):
         
-        if value <= 0:
+        if value < 0:
              raise ValueError("Waiting list cannot be negative!")
          
         self.__waitlist= value
@@ -75,4 +77,12 @@ class Course_Section:
         
         self.__waitlist -= 1 
         
+    def display_info(self):
+        print(f"Course: {self.title}")
+        print(f"Cpacity: {self.capacity}")
+        print(f"Enrolled: {self.enrolled}")
+        print(f"Waitlist: {self.waitlist}")
     
+course = Course_Section("Physics101", 20, 15)
+course.waitlist = 4
+course.display_info()
