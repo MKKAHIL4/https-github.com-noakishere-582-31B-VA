@@ -29,5 +29,17 @@ def status(self, value):
     if not isinstance(value, CourseStatus):
         raise ValueError("status must be a CourseStatus value")
     self.__status = value
+
+#DELIVERY MODE PROPERTY
+
+@property
+def delivery_mode(self):
+    return self.__delivery_mode
+
+@delivery_mode.setter
+def delivery_mode(self, value):
     
+    if not isinstance(value, DeliveryMode):
+        raise ValueError("delivery_mode must be a DeliveryMode value")
+    self.__delivery_mode = value
         
