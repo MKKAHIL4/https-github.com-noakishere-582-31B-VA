@@ -18,7 +18,7 @@ course4.display_info()
 
 try:
     course5.reopen_course()
-    print("Course5 responded successfully")
+    print("Course5 reoponded successfully")
 except ValueError as e:
     print("Course 5 Error :", e)
 
@@ -29,8 +29,8 @@ course7 = Course("Physics 107 ", 10, CourseStatus.OPEN, DeliveryMode.ONLINE)
 course7.display_info() 
 course8 = Course("Physics 105 ", 20, CourseStatus.CANCELED, DeliveryMode.IN_PERSON)
 course8.display_info() 
-print("Course4 open?", course7.is_open_for_registration())
-print("Course5 open?", course8.is_open_for_registration())
+print("Course7 open?", course7.is_open_for_registration())
+print("Course8 open?", course8.is_open_for_registration())
 
 print("\n ========TESTING Student in main ========")
         
@@ -41,18 +41,28 @@ student5.display_info()
 student7 = Student("Jennifer", StudentLevel.ADVANCED)
 student7.display_info()
 
-print("\n=======rorr Testing in Main ==============")
+print("\n=======Error Testing in Main ==============")
 #INVALID COURSE (string instead of enum)
 try:
     bad_course = Course("Bad Course", 20, "open", DeliveryMode.ONLINE)
 except ValueError as e:
-    print("Course Erorr: ", e)
+    print("Course Error: ", e)
+
+try:
+    bad_course = Course("Bad Course 101", 20, CourseStatus.OPEN,"online")
+except ValueError as e:
+    print("Course Error: ", e)
+    
+try:
+    bad_course = Course("Bad Course 201", 100, CourseStatus.OPEN, DeliveryMode.ONLINE)
+except ValueError as e:
+    print("Course Error: ", e)
 
 #INVALID STUDENT (string instead of enum)
 try:
     bad_student = Student("Stephanie", "expert") 
 except ValueError as e:
-    print("Course Erorr: ", e)
+    print("Course Error: ", e)
     
 #INVALID REOPEN (cancled course)
 print("\n ============CANCLED COURSE TEST=============   ")
