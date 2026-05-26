@@ -20,4 +20,21 @@ class Course_Section:
              raise ValueError("Capacity Must be Greater Than 0..!!")
          
         self.__capacity = value
+    #Enrolled porperty
     
+    @property
+    def enrolled(self):
+        return self.__enrolled
+
+    @capacity.setter
+    def enrolled(self, value):
+        
+        if value <= 0:
+             raise ValueError("Enrolled students cannot be negative!")
+        
+        if value > self.capacity:
+             raise ValueError("Enrolled students cannot exceed capacity!")
+         
+        self.__enrolled = value
+    
+    # waiting list property
