@@ -49,8 +49,11 @@ class StudentAccount:
         
 # add seats
     def add_credits(self,amount):
-        self.__credits += amount
-        print(f"{amount} credits added.")
+        if amount >0:
+            self.__credits += amount
+            print(f"{amount} credits added.")
+        else:
+            print(" Amount is invalid")
 
     #remove seats
     def use_credits(self, amount):

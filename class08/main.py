@@ -40,13 +40,13 @@ class BankAccount:
     def __init__(self, owner, balance):
         self.owner = owner
         self.__balance = balance
-    def deposit(self, amount)
+    def deposit(self, amount):
         if amount > 0:
             self.__balance += amount
     def withdraw(self, amount):
         if 0 < amount <= self.__balance:
             self.__balance -= amount
-    def show_balance(self)
+    def show_balance(self):
         print(f"balance is : {self.__balance}")
 
 bank_account1 = BankAccount("Jane", 500)
@@ -63,10 +63,13 @@ bank_account1.show_balance()# show balance() accesses data ionternally and shows
 
 class Temperature:
     def __init__(self, celsius):
-        self.celsius = celsius
+        self.__celsius = celsius
     
     def set_celsius(self, value):
-        pass
+        if value >= -273:
+            self.__celsius = value
+        else:
+            print("Invalid Temperature")
     def show_celsius(self):
         print(f"{self.__celsius} C")
         
@@ -114,7 +117,7 @@ student3 = Student("jane", 3.5)
 print(student3.__dict__)
 # we see that __gpa has been transformed to _Student__gpa internally.
 
-print(student3.Student__gpa)
+print(student3._Student__gpa)
 #print(student3.__gpa) # this doesnt show anything and throws an error
 
 #the goal of using this private accessor is to 
