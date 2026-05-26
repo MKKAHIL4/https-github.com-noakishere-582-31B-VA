@@ -26,7 +26,7 @@ class Course_Section:
     def enrolled(self):
         return self.__enrolled
 
-    @capacity.setter
+    @enrolled.setter
     def enrolled(self, value):
         
         if value <= 0:
@@ -38,3 +38,14 @@ class Course_Section:
         self.__enrolled = value
     
     # waiting list property
+    @property
+    def waitlist(self):
+        return self.__waitlist
+
+    @waitlist.setter
+    def waitlist(self, value):
+        
+        if value <= 0:
+             raise ValueError("Waiting list cannot be negative!")
+         
+        self.__waitlist= value
