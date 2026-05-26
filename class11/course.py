@@ -73,7 +73,8 @@ class Course:
                 f"Capacity : {self.capacity} | "
                 f"Status : {self.status.value} | "
                 f"Delivery Mode : {self.delivery_mode.value} | "
-                )    
+                ) 
+print("\n========Testing Course=========== ")   
 course1 = Course("Physics 101 ", 10, CourseStatus.OPEN, DeliveryMode.ONLINE)
 course1.display_info() 
 course2 = Course("Physics 102 ", 20, CourseStatus.CANCELED, DeliveryMode.IN_PERSON)

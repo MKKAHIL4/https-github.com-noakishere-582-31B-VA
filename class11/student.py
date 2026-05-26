@@ -23,6 +23,7 @@ class Student:
             f"student: {self.name} | "
             f"level: {self.level.value}"
         )
+print("\n ========TESTING Student========")
         
 student1 = Student("Alice", StudentLevel.BEGINNER)
 student1.display_info()
