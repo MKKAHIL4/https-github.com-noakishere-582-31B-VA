@@ -1,11 +1,11 @@
 from enum import Enum
 
-class CoursesStatus(Enum):
+class CourseStatus(Enum):
     OPEN = "open"
     CLOSED = "closed"
     CANCELED = "canceled"
 
-class DeliveredMode(Enum):
+class DeliveryMode(Enum):
     ONLINE = "online"
     IN_PERSON = "in_person"
     HYBRID = "hybrid"
