@@ -1,5 +1,5 @@
 class Course_Section:
-    def __init__(self, title, capacity, enrolled=0):
+    def __init__(self, title, capacity, enrolled=0, waitlist=0):
         if not title.strip():
             raise ValueError("Ttile cannot be empty")
         
@@ -8,7 +8,7 @@ class Course_Section:
         self.capacity = capacity
         self.enrolled = enrolled
         
-        self.waitlist = 0;
+        self.waitlist = waitlist;
     #capacity property
     @property
     def capacity(self):
@@ -83,6 +83,6 @@ class Course_Section:
         print(f"Enrolled: {self.enrolled}")
         print(f"Waitlist: {self.waitlist}")
     
-course = Course_Section("Physics101", 20, 15)
-course.waitlist = 4
+course = Course_Section("Physics101", 20, 15, 4)
+
 course.display_info()
