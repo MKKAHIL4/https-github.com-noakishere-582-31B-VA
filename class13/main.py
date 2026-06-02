@@ -13,7 +13,7 @@ class BankAccount:
         self.__balance = balance
 
     
-# Encapsulation says: object state shold be protected intentionally.
+# Encapsulation says: object state should be protected intentionally.
 
 # Properties:
 

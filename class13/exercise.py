@@ -46,20 +46,31 @@ for vehicle in vehicles:
     
 #3
 class Account:
+    
+    def __init__(self, owner):
+        self.owner = owner
+        
     def showType(self):
-        print("general Account")
+        return f"{self.owner} has a regular account"
+
         
 class SavingsAccount(Account):
+    def __init__(self, owner, interest_rate):
+        super().__init__(owner)
+        self.interest_rate = interest_rate
+    
     def showType(self):
-        print("Savings Account -Earns five percent Interest")
-        
+        return f"{self.owner} has a saving account with interest rate of {self.interest_rate}"
 class PremiumAccount(Account):
+    def __init__(self, owner, reward_level):
+        super().__init__(owner)
+        self.rewrad_level = reward_level
+    
     def showType(self):
-        print("Premium Account - Gets points when traveling")
-        
-        #return super().showType()
-accounts = [SavingsAccount(), PremiumAccount()]
+        return f"{self.owner} has a premium account with rewrad levelof {self.rewrad_level}"
 
-print("\nAccount Types:")
+accounts = [Account("Kamyar"), SavingsAccount("Moe", 7.5), PremiumAccount("Evgeniya", "Gold")]
+
+
 for account in accounts:
-    account.showType()
+    print(account.showType())
