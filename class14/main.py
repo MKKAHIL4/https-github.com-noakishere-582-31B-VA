@@ -65,21 +65,21 @@ except ZeroDivisionError:
 
 # else
 try: # try to do something
-number = int("42")
+    number = int("42")
 except ValueError: # raise an exception, in case of an error
-print("Conversion failed. ")
+    print("Conversion failed. ")
 else: # if it's successful, do the following:
-print("Conversion succeeded: ", number)
+    print("Conversion succeeded: ", number)
 
 # finally block
 
 # else
 try: # try to do something
-number = int("42")
+    number = int("42")
 except ValueError: # raise an exception, in case of an error
-print("Conversion failed. ")
+    print("Conversion failed. ")
 else: # if it's successful, do the following:
-print("Conversion succeeded: ", number)
+    print("Conversion succeeded: ", number)
 
 # finally block
 
