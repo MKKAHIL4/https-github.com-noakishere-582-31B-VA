@@ -99,4 +99,64 @@ finally:
                 #try --> if it works --> else
                 #if it doesnt work --> excepts
 #                                                --> finally
+print("=====================")
+#Raising exceptions deliberately
 
+#programs should raise exception when they detect invalid situations. when that happens we use raise
+
+def set_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    return age
+
+def withdraw(balance, amount):
+    if amount > balance:
+        raise ValueError("Insufficient Funds")
+    return balance - amount
+
+# withdraw(1000, 1100)
+
+# Python itself has many built-in exception types, it's up to us to use the one that matches our prob.
+
+# Common ones that we'll use are:
+# ValueError
+# ZeroDivisionError
+# KeyError
+# TypeError
+# IndexError
+
+#let's move on to exceptions in classes and invariants
+class InvalidGPAError(Exception):
+    pass
+class StudentRecord:
+    def __init__(self, name, gpa):
+        if not name.strip():
+            raise ValueError("Name cannot be empty")
+        self.__name = name
+        self.gpa = gpa
+
+    @property
+    def gpa(self):
+        return self.__gpa
+    
+    @gpa.setter
+    def gpa(self, value):
+        if not (0.0 <= value <= 4.0):
+            raise InvalidGPAError("GPA Must be between 0.0 and 4.0")
+        self.__gpa = value
+        
+sr1 = StudentRecord("Test", 5)
+
+# this is exactly where exceptions become useful in object-oriented design:
+
+# the class protects itself
+# invalid states are rejected clearly
+# callers must deal with the problem
+
+try:
+    sr2 = StudentRecord("Alice", 5.0)
+except InvalidGPAError as error:
+    print("Could not create student record: ", error)
+except ValueError as error:
+    print("Could not create student record: ", error)
+    
