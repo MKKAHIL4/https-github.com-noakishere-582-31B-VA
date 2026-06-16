@@ -12,4 +12,4 @@ def main():
     print("Max tickets per booking:", MAX_TICKETS_PER_BOOKING)
 
 if __name__ == "__main__":
-    main()                                                                    
+    main()
