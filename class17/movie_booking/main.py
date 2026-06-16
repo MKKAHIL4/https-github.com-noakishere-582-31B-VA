@@ -6,6 +6,7 @@ from models.staff import Staff
 from core.utils import print_separator, format_title
 from models.booking import Booking
 from core.utils import apply_discount
+from core.constants import TICKET_PRICE
 
 def main():
 
@@ -14,6 +15,7 @@ def main():
     show = MovieShow("Inception", 20, ShowStatus.OPEN)
     booking = Booking ("Sandra","Silence of the Lamb", 4)
     
+    total_cost = 3 * TICKET_PRICE
     price = 29.99
     final_price = apply_discount(price, 10)
     
@@ -33,6 +35,8 @@ def main():
     print(f"Original Price: {price}")
     print(f"Discounted price: {final_price}")
     print_separator()
+    print_separator()
+    print(f"Total ticket cost: {total_cost}")
      
 if __name__ == "__main__":
     main()
