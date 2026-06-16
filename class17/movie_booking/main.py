@@ -13,7 +13,7 @@ def main():
     customer = Customer("Eva Mendez")
     staff = Staff("Micheal Blue", "Manager")
     show = MovieShow("Inception", 20, ShowStatus.OPEN)
-    booking = Booking ("Sandra","Silence of the Lamb", 4)
+    booking = Booking ("Sandra", "Silence of the Lamb", 4)
     
     total_cost = 3 * TICKET_PRICE
     price = 29.99
