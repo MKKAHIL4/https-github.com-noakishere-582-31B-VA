@@ -5,6 +5,7 @@ from models.movie_show import MovieShow
 from models.staff import Staff
 from core.utils import print_separator, format_title
 from models.booking import Booking
+from core.utils import apply_discount
 
 def main():
 
@@ -12,6 +13,11 @@ def main():
     staff = Staff("Micheal Blue", "Manager")
     show = MovieShow("Inception", 20, ShowStatus.OPEN)
     booking = Booking ("Sandra","Silence of the Lamb", 4)
+    
+    price = 29.99
+    final_price = apply_discount(price, 10)
+    
+    
     
     customer.display_info()
     print_separator()
@@ -22,7 +28,11 @@ def main():
     print("Max tickets per booking:", MAX_TICKETS_PER_BOOKING)
     print_separator()
     booking.display_info()
-    
-
+    print_separator()
+    print_separator()
+    print(f"Original Price: {price}")
+    print(f"Discounted price: {final_price}")
+    print_separator()
+     
 if __name__ == "__main__":
     main()
