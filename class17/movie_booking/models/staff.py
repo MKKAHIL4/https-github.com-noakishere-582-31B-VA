@@ -4,5 +4,5 @@ class Staff:
         self.role = role 
         
     def display_info(self):
-        print(f"Staff: {self.name} | Role: {self.role}")
+        print(f"Staff: {self.name} | Position: {self.role}")
         
