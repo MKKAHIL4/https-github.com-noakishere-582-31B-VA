@@ -7,4 +7,7 @@ class MovieShow:
         self.status = status
 
     def display_info(self):
-        print(f"{self.title} | Capacity: {self.capacity} | Status: {self.status.value}")
+        status_text = self.status.value.replace("_", " ").title()
+        print(f"Movie: {self.title}") 
+        print(f"Capacity: {self.capacity} seats")
+        print(f"Status: {status_text}")
