@@ -1,3 +1,5 @@
 
 
 mk, mko, 9
+Customer name: mko0, Movie Title: love, Tickets amount: 8
+Customer name: nji || Movie Title: mk1 || Tickets amount: 6

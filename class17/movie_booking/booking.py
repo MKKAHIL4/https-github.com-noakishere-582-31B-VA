@@ -14,7 +14,7 @@ def book_ticket():
         
         #saving the data entry into a file
         with open("class17/movie_booking/bookings.txt", "a") as file:
-            file.write(f"{customer_name}, {movie_title}, {tickets}\n")
+            file.write(f"Customer name: {customer_name} || Movie Title: {movie_title} || Tickets amount: {tickets}\n")
         print ("Booking saved Successfully...")   
     except ValueError:
         print("Invalid  Number Input..please try again!!!!")
