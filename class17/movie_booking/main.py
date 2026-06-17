@@ -26,23 +26,34 @@ def main():
     
     customer.display_info()
     print_separator()
+    
     staff.display_info()
     print_separator()
+   
     show.display_info()
     print_separator()
+    
     print("Max tickets per booking:", MAX_TICKETS_PER_BOOKING)
     print_separator()
+    
     booking.display_info()
     print_separator()
     print_separator()
+    
     print(f"Original Price: {price}")
     print(f"Discounted price: {final_price}")
     print_separator()
     print_separator()
+    
     print(f"Total ticket cost: {total_cost}")
-    3
     print_separator()
-    print("\n ===Booking menu===")
+    print_separator()
+    
+    print("\n ===Booking menu1===")
+    book_ticket()
+    print_separator()
+    
+    print("\n ===Booking menu2===")
     print("1.Original Booking")
     print("2.Movie Selection Booking")
     print("3.View Bookings")
