@@ -3,3 +3,15 @@
 mk, mko, 9
 Customer name: mko0, Movie Title: love, Tickets amount: 8
 Customer name: nji || Movie Title: mk1 || Tickets amount: 6
+Customer name: mko || Movie Title: minki || Tickets amount: 9
+Customer name: mkh || Movie Title: 1 || Tickets amount: 2
+Customer name: mko0 || Movie Title: minki || Tickets amount: 7
+Customer name: mji || Movie Title: Fast and Furious || Tickets amount: 3
+Customer name: mjb || Movie Title: 2 || Tickets amount: 7
+plm, 2,2
+Customer name: lkm || Movie Title: 8 || Tickets amount: 4
+Customer name: mko || Movie Title: 2 || Tickets amount: 2
+Customer name: lmk || Movie Title: The Italian Job || Tickets amount: 4
+Customer name: jni || Movie Title: Lost || Tickets amount: 4
+Customer name: jnk || Movie Title: The Score || Tickets amount: 8
+Customer name: plm || Movie Title: Silence of the Lamb || Tickets amount: 4

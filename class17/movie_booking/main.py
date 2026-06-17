@@ -7,7 +7,8 @@ from core.utils import print_separator, format_title
 from models.booking import Booking
 from core.utils import apply_discount
 from core.constants import TICKET_PRICE
-from booking import book_ticket
+from booking import book_ticket, book_ticket_selection, view_bookings
+
 
 
 def main():
@@ -39,7 +40,25 @@ def main():
     print_separator()
     print_separator()
     print(f"Total ticket cost: {total_cost}")
-    book_ticket()
+    3
+    print_separator()
+    print("\n ===Booking menu===")
+    print("1.Original Booking")
+    print("2.Movie Selection Booking")
+    print("3.View Bookings")
+    print("4.Exit")
+    choice = int(input("Enter a choice: "))
+    if choice == 1:
+        book_ticket()
+    elif choice == 2: 
+        book_ticket_selection()
+    elif choice == 3: 
+        view_bookings()
+    elif choice == 4: 
+        print("GoodBye & Thank You!")   
+    else:
+        print("Invalid choice!!") 
+     
      
 if __name__ == "__main__":
     main()
