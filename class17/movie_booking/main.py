@@ -7,6 +7,8 @@ from core.utils import print_separator, format_title
 from models.booking import Booking
 from core.utils import apply_discount
 from core.constants import TICKET_PRICE
+from booking import book_ticket
+
 
 def main():
 
@@ -37,6 +39,7 @@ def main():
     print_separator()
     print_separator()
     print(f"Total ticket cost: {total_cost}")
+    book_ticket()
      
 if __name__ == "__main__":
     main()
