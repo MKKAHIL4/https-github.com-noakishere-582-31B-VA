@@ -1,41 +1,25 @@
-## Authentication and user accounts in Flask
+import os
+from dotenv import load_dotenv
+from flask import (Flask, flash, redirect, render_template, request, url_for)
+from flask_login import (LoginManager, current_user, login_required, login_user, logout_user)
 
-### Authentication vs Authorization
+app = Flask(__name__)
 
-Authentication means : is the user logged in?
+app.config["SQLALCHEMY_DATABASE_URI"]=("sqlite:///foundry.db")
 
-Authorization means: is the user allowed to do an action. (edit, view, etc.)
+# Flask uses the secret key to securely sign sesssion information and flash messages.
+# Without, login sessions and flash messages cannot function properly.
+# In a deployed application (whether final or dev) the secret should come from an envrionment variable.
+app.config["SECRET_KEY"]= os.getenv("SECRET_KEY")
 
-### Terminology
+#db
 
-Password hashing: A one-way representation of a password.(to hide)
--session : Data used to remember between requests
-    -a remporary, server-side record of a user interaction with a website.
+#login
+login_manager = LoginManager()
+login_manager = login_view = "login"
 
--protected route: A route that requires Authentication
+login_manager.init_app(app)
 
--Flash message: A temporrary message displayed after an action(usually a request)
-
--unique constraint: a database rule preventing duplicate values.
-
--credential: Information used to prove identity.
-
-Request1 : POST/ LOGIN
-
---> Credentials verified(username, password is verified)
---> useir ID is stored in session 
-
-
---> request2: GET/ dashboard
---> Session identifies the member (member associated with the content )
---> currrent_user () from session) contains the member etc, etc,
-### passwords and thy they shouldnt be stored directly
-
-When the user registers, if we store their password directly in the database (like Password123 for
-example), in case of a database exposure or exploit, every password becomes immediatebly readable.
-
-We want to store a password hash:
-
-i.e .: Password 123 -- > scrypt:3247574279:8.1$ (not real)
-
-A hash is designed to be one-way. The application cannot decrypt it.
+with app.app_context():
+    #create the tables
+    db.create_all()
