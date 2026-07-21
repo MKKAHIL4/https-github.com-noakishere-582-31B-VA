@@ -6,6 +6,7 @@ from werkzeug.security import (check_password_hash, generate_password_hash)
 # let's start our db
 db = SQLAlchemy()
 
+
 class Member(UserMixin, db.Model):
  __tablename__ = "memeber"
 
