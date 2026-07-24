@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash 
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, logout_user
 from models import db, User
 
 app = Flask(__name__)
@@ -20,7 +20,7 @@ def load_user(user_id):
 
 @app.route("/")
 def home():
-    return "<h1>Shelf is Working</h1>"
+    return render_template("home.html")
     
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -65,6 +65,14 @@ def login():
         flash("Invalid email or password")
 
     return render_template("login.html")
+@app.route("/logout")
+def logout():
+    
+    logout_user()
+    
+    flash("Logged out successfully")    
+    
+    return redirect(url_for("home"))
 
 with app.app_context():
     db.create_all()

@@ -13,13 +13,11 @@
         <a href="{{ url_for('home') }}">Shelf</a>
         <a href="{{ url_for('register') }}">Register</a>
         <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
     </header>
-</body>
-</html>
+    
 
-
-
-<main>
+    <main>
   {% with messages = get_flashed_messages() %} {% if messages %}
   <section>
     {% for message in messages%}
@@ -28,3 +26,10 @@
   </section>
   {% endif %} {% endwith %} {% block content %} {% endblock %}
 </main>
+
+</body>
+</html>
+
+
+
+
