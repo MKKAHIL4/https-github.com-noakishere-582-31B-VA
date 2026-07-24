@@ -127,3 +127,75 @@ def register():
         return redirect(url_for("login"))
     
     return render_template("register.html")
+
+
+#### LOGIN!
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    # if authenticated, you can't login again!
+    if current_user.is_authenticated:
+        return redirect(url_for("dashboard"))
+    
+    if request.method == "POST":
+        username = request.form["username"].strip()
+        password = request.form["password"]
+
+        member = Member.query.filter_by(username=username).first()
+
+        # if no member is found, or the check password return false
+        if member is None or not member.check_password(password):
+            # why do we use one generic error?
+            # for the sake of security, we reveal as little information about the account as possible.
+            flash("Invalid username or password", "error")
+
+            return render_template("login.html", username=username)
+        
+        # if not! we're good to go
+        
+        # login_user does not store the entire object in the browser
+        # Flask-Login stores identifying session information.
+        # On later requests, the user loader retrieves the model object.
+        login_user(member)
+
+        flash("Your now logged in.", "success")
+
+        return redirect(url_for("dashboard"))
+    
+    return render_template("login.html")
+
+#### LOGOUT
+@app.route("/logout", methods=["POST"])
+@login_required
+def logout():
+    logout_user()
+    # after logout_user(), current_user.is_authenticated becomes false. (flag)
+
+    flash("You have been logged out.", "success")
+
+    return redirect(url_for("home"))
+
+
+#### DASHBOARD
+# Always maintain this order:
+@app.route("/dashboard") #1
+@login_required #2
+def dashboard():
+    workshops = [
+        {
+            "title": "Intro to Screen Printing",
+            "date": "August 8",
+            "spaces": 6,
+        },
+        {
+            "title": "Arduino for Beginners",
+            "date": "August 12",
+            "spaces": 3,
+        },
+        {
+            "title": "Woodworking Basics",
+            "date": "August 18",
+            "spaces": 0,
+        },
+    ]
+
+    return render_template("dashboard.html", workshops=workshops)
