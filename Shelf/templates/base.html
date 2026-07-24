@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}
+        Shelf
+        {%endblock%}
+    </title>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('home') }}">Shelf</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('login') }}">Login</a>
+    </header>
+</body>
+</html>
+
+
+
 <main>
   {% with messages = get_flashed_messages() %} {% if messages %}
   <section>

@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash 
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user
 from models import db, User
 
 app = Flask(__name__)
@@ -44,6 +44,27 @@ def register():
         return redirect(url_for("home"))
     return render_template("register.html")
 
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "POST":
+
+        email = request.form["email"]
+        password = request.form["password"]
+
+        user = User.query.filter_by(email=email).first()
+
+        if user and user.check_password(password):
+            login_user(user)
+            
+            flash("Login Successfully")
+
+            return redirect(url_for("home")) 
+        flash("Invalid email or password")
+
+    return render_template("login.html")
 
 with app.app_context():
     db.create_all()
