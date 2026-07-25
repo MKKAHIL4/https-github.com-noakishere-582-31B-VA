@@ -30,6 +30,27 @@ def register():
         email = request.form["email"]
         password = request.form["password"]
 
+        if not username:
+                flash("Username cannot be empty")
+                return render_template("register.html")
+
+        if not email:
+            flash("Email cannot be empty")
+            return render_template("register.html")
+
+        if not password:
+            flash("Password cannot be empty")
+            return render_template("register.html")
+
+        existing_user = User.query.filter(
+            (User.username == username) | (User.email == email)
+        ).first()
+
+
+        if existing_user:
+            flash("Username or email already exist")
+            return render_template("register.html")
+
         user = User(
             username=username,
             email=email
@@ -42,7 +63,7 @@ def register():
         flash("Account Created Successfully")
 
         return redirect(url_for("home"))
-    return render_template("register.html")
+            
 
 
 
