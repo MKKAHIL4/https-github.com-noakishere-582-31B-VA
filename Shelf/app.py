@@ -118,6 +118,32 @@ def add_book():
 
     return render_template("add_book.html")
 
+@app.route("/books/<int:book_id>/edit", methods=["GET", "POST"])
+@login_required
+def edit_book(book_id):
+    book = Book.query.get_or_404(book_id)
+
+    if book.user_id != current_user.id:
+        flash("You are not allowed to edit this book ")
+        return redirect(url_for("dashboard"))
+
+    if request.method == "POST":
+        status = request.form["status"]
+
+        book.status = status
+
+        db.session.commit()
+
+        flash("Book Updated Successfully")
+
+        return redirect(url_for("dashboard"))
+
+    return render_template(
+        "book_edit.html",
+        book=book
+    )        
+
+
 
 
 

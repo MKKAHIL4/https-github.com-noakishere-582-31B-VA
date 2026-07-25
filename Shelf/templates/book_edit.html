@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+EditBook | Shelf
+
+{% endblock%}
+
+{% block content %}
+
+
+
+<section>   
+    <h1>Edit Book status</h1>
+    <p>
+        Update reading status for:
+          <strong>{{ book.title}}</strong>
+    </p>
+    <form method="post">
+
+    <div class="form-group">
+        
+            <label for="status">Reading Status</label>
+       
+                <select 
+                    id="status"
+                    name="status"
+                    required
+                >
+                <option value="Want to read" 
+                    {% if book.status == "Want to read" %}
+                    selected
+                    {%endif%}
+                >
+                Want to read
+                </option>
+
+                <option value="Reading"
+                    {% if book.status == "Reading" %}
+                    selected
+                    {%endif%}
+                >
+                Reading
+                </option>
+
+                <option value="Finished" 
+                    {% if book.status == "Finished" %}
+                    selected
+                    {%endif%}
+                >
+                Finished
+                </option>
+            </select>
+
+        </div>
+
+        <button type="submit">
+            Update Status
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
