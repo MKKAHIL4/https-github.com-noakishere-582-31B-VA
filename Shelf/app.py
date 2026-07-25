@@ -160,6 +160,18 @@ def edit_book(book_id):
     if request.method == "POST":
         status = request.form["status"]
 
+        allowed_status =[
+            "Want to read",
+            "Reading",
+            "Finished"
+        ]
+
+        if status not in allowed_status:
+            flash("Invalid reading status")
+            return render_template(
+                "book_edit.html",
+                book=book
+            )
         book.status = status
 
         db.session.commit()
