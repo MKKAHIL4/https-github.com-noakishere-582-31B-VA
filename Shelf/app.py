@@ -63,6 +63,7 @@ def register():
         flash("Account Created Successfully")
 
         return redirect(url_for("home"))
+    return render_template("register.html")    
             
 
 
@@ -80,7 +81,7 @@ def login():
         if user and user.check_password(password):
             login_user(user)
             
-            flash("Login Successfully")
+            flash("Login Successful")
 
             return redirect(url_for("home")) 
         flash("Invalid email or password")
@@ -164,10 +165,11 @@ def add_book():
 
         db.session.commit()
             
-        flash("Book loaded successfully")
+        flash("Book added successfully")
 
         return redirect(url_for("dashboard")) 
        
+    return render_template("add_book.html")
 
 @app.route("/books/<int:book_id>/edit", methods=["GET", "POST"])
 @login_required

@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1662582631700-676a217d511f?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color:wheat;
+    min-height: 100vh;
+}
+
+header{
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+header a {
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover{
+    opacity: 0.7;
+}
+
+main{
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto
+}
+
+section,
+article{
+    background: rgba(0, 0, 0, 0.65);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+h1,h2,h3,p,label{
+    color: white;
+
+}
+
+input,textarea,select{
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+button{
+    background: white;
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+a {
+    color: beige;
+}
+.form-group{
+    margin-bottom: 15px;
+}
+
+.edit-book{
+        background: rgba(0, 0, 0, 0.65);
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 600px;
+        margin:40px auto;
+
+}
+.edit-book h1{
+    color: wheat;
+    text-align: center;
+
+}
+
+.edit-book p {
+    color:wheat;
+    font-size: 18px;
+
+}
+.edit-book strong{
+    color: beige;
+}
+.edit-book select{
+    background: white;
+    color: black;
+}
+
+.edit-button{
+    display: inline-block;
+    background: wheat;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.edit-button:hover{
+    opacity:0.8;
+}
