@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash 
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from models import db, User
+from models import db, User, Book
 
 app = Flask(__name__)
 
@@ -83,6 +83,34 @@ def dashboard():
         "dashboard.html",
         username=current_user.username
         )
+
+@app.route("/add_book", methods=["GET", "POST"])
+@login_required
+def add_book():
+
+    if request.method == "POST":
+        title = request.form["title"]
+        author = request.form["author"]
+        description = request.form["description"]
+
+        book = Book(
+            title=title,
+            author=author,
+            description=description,
+            user_id=current_user.id
+        ) 
+
+        db.session.add(book)
+
+        db.session.commit()
+           
+        flash("Book loaded successfully")
+
+        return redirect(url_for("dashboard")) 
+
+    return render_template("add_book.html")
+
+
 
 
 with app.app_context():
