@@ -94,10 +94,41 @@ def dashboard():
 def add_book():
 
     if request.method == "POST":
-        title = request.form["title"]
-        author = request.form["author"]
-        note = request.form["note"]
+        title = request.form["title"].strip()
+        author = request.form["author"].strip()
+        note = request.form["note"].strip()
         status = request.form["status"]
+
+        allowed_status = [
+            "Want to read",
+            "Reading",
+            "Finished"
+        ]
+    
+        if not title:
+            flash("Title cannot be empty")
+            return render_template("add_book.html")
+
+        if len(title) > 100:
+            flash("Title cannot be more than 100 characters")
+            return render_template("add_book.html")
+
+        if not author:
+            flash("Author cannot be empty")
+            return render_template("add_book.html")
+
+
+        if len(author) > 100:
+            flash("Author cannot be more than 100 characters")
+            return render_template("add_book.html")
+
+        if len(note) > 1000:
+            flash("Note cannot be more than 100 characters")
+            return render_template("add_book.html")
+
+        if status not in allowed_status:
+            flash("Invalid reading status")
+            return render_template("add_book.html")   
 
         book = Book(
             title=title,
@@ -111,12 +142,11 @@ def add_book():
         db.session.add(book)
 
         db.session.commit()
-           
+            
         flash("Book loaded successfully")
 
         return redirect(url_for("dashboard")) 
-
-    return render_template("add_book.html")
+       
 
 @app.route("/books/<int:book_id>/edit", methods=["GET", "POST"])
 @login_required
@@ -141,9 +171,25 @@ def edit_book(book_id):
     return render_template(
         "book_edit.html",
         book=book
-    )        
+    )  
 
 
+@app.route("/books/<int:book_id>/delete", methods=["POST"])
+@login_required
+def delete_book(book_id):
+    book = Book.query.get_or_404(book_id)
+
+    if book.user_id != current_user.id:
+        flash("You are not allowed to delete this book ")
+        return redirect(url_for("dashboard"))
+    
+    
+    db.session.delete(book)
+    db.session.commit()
+
+    flash("Book Deleted Successfully")
+
+    return redirect(url_for("dashboard"))  
 
 
 
