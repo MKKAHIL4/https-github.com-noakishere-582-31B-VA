@@ -11,9 +11,19 @@
 <body>
     <header>
         <a href="{{ url_for('home') }}">Shelf</a>
+        {% if current_user.is_authenticated %}
+
+         <a href="{{ url_for('dashboard') }}">Dashboard</a>
+
+        <a href="{{ url_for('logout') }}">Logout</a> 
+        
+        {%else%}
+        
         <a href="{{ url_for('register') }}">Register</a>
         <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('logout') }}">Logout</a>
+
+        {% endif %}
+        
     </header>
     
 
