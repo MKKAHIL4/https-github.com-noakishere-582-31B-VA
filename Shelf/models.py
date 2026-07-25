@@ -21,8 +21,13 @@ class User(db.Model, UserMixin):
      
     password_hash = db.Column(
         db.String(255),
-        unique=True,
         nullable=False
+    )
+
+    books = db.relationship(
+        "Book",
+        backref="owner",
+        lazy=True
     )
 
     def set_password(self, password):
@@ -36,7 +41,31 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"<User {self.username}>"
 
+class Book(db.Model):
 
+    id = db.Column(
+        db.Integer,
+        primary_key=True
+    )
 
+    title = db.Column(
+        db.String(100),
+        nullable=False
+    )
 
+    
+    author = db.Column(
+        db.String(100),
+        nullable=False
+    )
+
+    description = db.Column(
+        db.Text
+    ) 
+
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey("user.id"),
+        nullable=False
+    )
     
