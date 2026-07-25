@@ -48,16 +48,39 @@ Add Book | Shelf
 
         <div class="form-group">
 
-            <label for="description">Description</label>
+            <label for="note">Book Note</label>
 
             <textarea
 
-                id="description"
-                name="description"
+                id="note"
+                name="note"
                 rows="5"
-                placeholder="Write a short description of the book">
+                maxlength="1000"
+                placeholder="Add a note about this book ">
 
             </textarea>
+        </div>
+        <div class="form-group">
+            <label for="status">Reading Status</label>
+       
+                <select 
+                    id="status"
+                    name="status"
+                    required
+                >
+                <option value="Want to read" >
+                    Want to read
+                </option>
+
+                <option value="Reading" >
+                    Reading
+                </option>
+
+                <option value="Finished" >
+                    Finished
+                </option>
+            </select>
+
         </div>
 
         <button type="submit">
@@ -65,7 +88,7 @@ Add Book | Shelf
         </button>
 
     </form>
-    
+
 </section>
 
 {% endblock %}

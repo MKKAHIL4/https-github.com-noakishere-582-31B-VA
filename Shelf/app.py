@@ -78,10 +78,15 @@ def logout():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    
+
+    books = Book.query.filter_by(
+        user_id=current_user.id
+    ).all()
+
     return render_template(
         "dashboard.html",
-        username=current_user.username
+        username=current_user.username,
+        books=books
         )
 
 @app.route("/add_book", methods=["GET", "POST"])
@@ -91,13 +96,16 @@ def add_book():
     if request.method == "POST":
         title = request.form["title"]
         author = request.form["author"]
-        description = request.form["description"]
+        note = request.form["note"]
+        status = request.form["status"]
 
         book = Book(
             title=title,
             author=author,
-            description=description,
+            note=note,
+            status=status,
             user_id=current_user.id
+
         ) 
 
         db.session.add(book)

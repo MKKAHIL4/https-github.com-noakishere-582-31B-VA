@@ -10,4 +10,44 @@ Dashboard| Shelf
 <h1>Welcome {{ username }}</h1>
 
 <p>This is your Dashboard</p>
+
+<section>   
+    <h2>My reading List</h2>
+    {% if books%}
+        {% for book in books%}
+
+        <article>
+            <h3>{{ book.title }}</h3>
+            <p>
+                <strong>Author:</strong>
+                {{ book.author}}
+            </p>
+        </article>
+        
+        {% if book.note %}
+        
+            <p>
+                <strong>Note:</strong>
+                {{ book.note}}
+            </p>
+
+            {% endif%}
+            
+            <p>
+                <strong>Status:</strong>
+                {{ book.status}}
+            </p>
+        
+            {%endfor%}
+        
+        {%else%} 
+            <p> your Reading List is Empty</p>
+            <a href="{{ url_for('add_book') }}">
+                Add your First reading Book 
+            </a>
+
+         {% endif%}    
+
+</section>
+
 {% endblock %}

@@ -59,10 +59,16 @@ class Book(db.Model):
         nullable=False
     )
 
-    description = db.Column(
-        db.Text
+    note = db.Column(
+        db.Text,
+        nullable=True
     ) 
 
+    status = db.Column(
+        db.String(20),
+        nullable=False,
+        default="Want to read"
+    )
     user_id = db.Column(
         db.Integer,
         db.ForeignKey("user.id"),
