@@ -116,7 +116,7 @@ def edit_album(album_id):
         album.artist = request.form["artist"]
         album.genre = request.form["genre"]
         album.year = int(request.form["year"])
-        album.stock = int(request.form["amount"])
+        album.stock = int(request.form["stock"])
         
         db.session.commit()
 

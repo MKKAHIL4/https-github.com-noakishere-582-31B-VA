@@ -61,16 +61,15 @@ block content %}
                         album_id=item.id
                     ) }}"
     >
-    </a>
       Edit
-    
+    </a>
 
-    <form method="POST" action="{{ url_for('delete_album', album_id=item.id )}}">
-        <button type="submit">
-            Delete
-        </button>
+    <form
+      method="POST"
+      action="{{ url_for('delete_album', album_id=item.id )}}"
+    >
+      <button type="submit">Delete</button>
     </form>
-    
   </article>
 
   {% endfor %}
